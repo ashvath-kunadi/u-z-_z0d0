@@ -10,7 +10,7 @@
 library(shiny)
 library(ggplot2)
 library(gganimate)
-dat <- read.csv("H:/My Documents/Project and related work/Rainfall-Throughfall/forshiny.csv")
+dat <- read.csv("U:/UWA/Final Pres/forshiny.csv")
 # Define UI for application that draws a histogram
 ui <- fluidPage(
 
@@ -21,12 +21,12 @@ ui <- fluidPage(
     fluidRow(
         column(width = 4, wellPanel(
             sliderInput("z0",
-                        "Roughness Length",
+                        "Roughness Length [m]",
                         min = 0.1,
                         max = 4,
                         value = 0.7),
             sliderInput("d0",
-                        "Zero Plane Displacement Length",
+                        "Zero Plane Displacement Length [m]",
                         min = 0,
                         max = 6.9,
                         value = 4.7)
@@ -57,10 +57,10 @@ server <- function(input, output) {
 
     })
     output$z0density <- renderPlot({
-        ggplot(dat, aes(x=varz02, fill = wdcat)) + geom_density(alpha=0.4) + scale_fill_grey() + theme_classic() + geom_vline(xintercept = 0.7, col = "red") + geom_vline(xintercept = input$z0, col = "darkgreen") + xlab("Roughnes length [m]")
+        ggplot(dat, aes(x=varz02)) + geom_density(alpha=0.4) + scale_fill_grey() + theme_classic() + geom_vline(xintercept = 0.7, col = "red") + geom_vline(xintercept = input$z0, col = "darkgreen") + xlab("Roughnes length [m]")
     })
     output$d0density <- renderPlot({
-        ggplot(dat, aes(x=vard2, fill = wdcat)) + geom_density(alpha=0.4) + scale_fill_grey() + theme_classic() + geom_vline(xintercept = 4.7, col = "red") + geom_vline(xintercept = input$d0, col = "darkgreen") + xlab("Zero Plane Displacement length [m]")
+        ggplot(dat, aes(x=vard2)) + geom_density(alpha=0.4) + scale_fill_grey() + theme_classic() + geom_vline(xintercept = 4.7, col = "red") + geom_vline(xintercept = input$d0, col = "darkgreen") + xlab("Zero Plane Displacement length [m]")
     })
 }
 
