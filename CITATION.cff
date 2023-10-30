@@ -1,0 +1,10 @@
+cff-version: 1.1.0
+message: "If you use this shiny app and data, please cite it as below."
+authors:
+- family-names: "Kunadi"
+  given-names: "Ashvath Singh"
+  orcid: "https://orcid.org/0000-0002-3098-1247"
+title: "Velocity Profile Variation"
+version: 1.4.0
+date-released: 2023-10-30
+url: "https://github.com/ashvath-kunadi/u-z-_z0d0"
